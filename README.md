@@ -15,7 +15,7 @@ This repository contains a command-line pipeline for analyzing RNA sequencing (R
   >**hisat2-build ./refgenome/hg38.fa ./genome_index/hg38_index:** HISAT2 is a fast and efficient aligner. This command creates an index of the reference genome (hg38 in this case) to speed up the alignment process. The index is stored in the genome_index directory.
 
   ### 4. Trim Reads (Quality Control):
-  >**for file_R1 in ./raw_data/*_R1.fastq; do ... done:** This loop iterates over each paired-end FASTQ file in the raw_data directory.
+  >**for file_R1 in ./raw_data/*_R1.fastq; do ... done:** This loop iterates over each paired-end FASTQ file in the raw_data directory.<br>
   >**trim_galore --paired "$file_R1" "$file_R2" --fastqc -o ./trimmed_fastq/:** Trim Galore is used for quality trimming (removing low-quality bases) and adapter removal from the reads. The --fastqc option generates FastQC reports for quality assessment. The trimmed reads are saved in the trimmed_fastq directory.
 
   ### 5. Align Reads (HISAT2):
