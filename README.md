@@ -41,13 +41,7 @@ This repository contains a command-line pipeline for analyzing RNA sequencing (R
 6. Execute the pipeline script: bash pipeline.sh (or the appropriate command for your shell)
 
 ## Dependencies
-<ul style="margin-left: 30px;">
-  <li>HISAT2</li>
-  <li>Samtools</li>
-  <li>HTSeq-count</li>
-  <li>Trim Galore</li>
-  <li>FastQC</li>
-</ul>
+* **HISAT2:** [https://anaconda.org/bioconda/hisat2](URL hisat2 ON Genome Research htslib.hci.utah.edu)
 
 ## Copyright
 © [2024] Bioinformatics Division of the National Institute of Biotechnology. All rights reserved.
