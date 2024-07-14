@@ -33,8 +33,8 @@ This repository contains a command-line pipeline for analyzing RNA sequencing (R
   >**sed '/^__/ d' < count_file/htcount.txt > count_file/final_htcount.txt:** Removes lines starting with "__" from the HTSeq-count output. These lines typically contain summary information, not individual gene counts. The cleaned count data is saved as final_htcount.txt.<br>
 
 ## Usage
-1. Clone this repository: git clone [repository URL]
-2. Install dependencies: (HISAT2, Samtools, HTSeq, Trim Galore)
+1. Clone this repository (git clone [repository URL])
+2. Install dependencies
 3. Place your raw FASTQ files in the raw_data directory.
 4. Place your reference genome file (e.g., hg38.fa) in the refgenome directory.
 5. Place your GTF annotation file (e.g., hg38.ncbiRefSeq.gtf) in the gtf directory.
