@@ -40,8 +40,15 @@ This repository contains a command-line pipeline for analyzing RNA sequencing (R
 5. Place your GTF annotation file (e.g., hg38.ncbiRefSeq.gtf) in the gtf directory.
 6. Execute the pipeline script: bash pipeline.sh (or the appropriate command for your shell)
 
+<pre>
 ## Dependencies
-* **HISAT2:** [https://anaconda.org/bioconda/hisat2](URL hisat2 ON Genome Research htslib.hci.utah.edu)
+
+* <a href="https://uofuhealth.utah.edu/huntsman/shared-resources/gcb">HISAT2</a>
+* <a href="URL samtools ON htslib.hci.utah.edu">Samtools</a>
+* <a href="URL htseq count ON HTSeq htseq.readthedocs.io">HTSeq-count</a>
+* <a href="URL trim galore ON Felix Krueger babraham.ac.uk">Trim Galore!</a>
+* <a href="URL fastqc ON Babraham Bioinformatics babraham.ac.uk">FastQC</a>
+</pre>
 
 ## Copyright
 © [2024] Bioinformatics Division of the National Institute of Biotechnology. All rights reserved.
