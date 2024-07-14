@@ -3,4 +3,5 @@ This repository contains a command-line pipeline for analyzing RNA sequencing (R
 
 ## Pipeline Steps:
 
-    1. Create Directories: mkdir -p sam_file bam_file count_file genome_index: Sets up the necessary folders to              organize the output files at different stages of the pipeline.
+  ### 1. Create Directories: 
+          - mkdir -p sam_file bam_file count_file genome_index: Sets up the necessary folders to              organize            the output files at different stages of the pipeline.
