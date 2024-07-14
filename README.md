@@ -19,8 +19,8 @@ This repository contains a command-line pipeline for analyzing RNA sequencing (R
   >**trim_galore --paired "$file_R1" "$file_R2" --fastqc -o ./trimmed_fastq/:** Trim Galore is used for quality trimming (removing low-quality bases) and adapter removal from the reads. The --fastqc option generates FastQC reports for quality assessment. The trimmed reads are saved in the trimmed_fastq directory.
 
   ### 5. Align Reads (HISAT2):
-  >**for file_R1 in ./trimmed_fastq/*_R1_val_1.fq; do ... done:** Extracts the raw sequencing data (FASTQ files) from their compressed 
-            format (.fastq.gz) and places them in the raw_data directory.
+  >**for file_R1 in ./trimmed_fastq/*_R1_val_1.fq; do ... done:** This loop iterates over the trimmed FASTQ files.<br>
+  >**hisat2 --dta-cufflinks -x ./genome_index/hg38_index -1 "$file_R1" -2 "$file_R2" -S "$output_name":** HISAT2 aligns the trimmed reads to the reference genome using the previously built index. The --dta-cufflinks option prepares the alignments for downstream analysis with Cufflinks (a tool for transcript assembly and quantification). The aligned reads are saved in SAM format in the sam_file directory.
 
   ### 2. Unzip FASTQ Files:
   >**gunzip ./raw_data/*.fastq.gz:** Extracts the raw sequencing data (FASTQ files) from their compressed 
