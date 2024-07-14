@@ -32,6 +32,10 @@ This repository contains a command-line pipeline for analyzing RNA sequencing (R
   ### 8. Clean Up Count File:
   >**sed '/^__/ d' < count_file/htcount.txt > count_file/final_htcount.txt:** Removes lines starting with "__" from the HTSeq-count output. These lines typically contain summary information, not individual gene counts. The cleaned count data is saved as final_htcount.txt.<br>
 
+## Usage
+1. Clone this repository: git clone [repository URL]
+2. Install dependencies: (HISAT2, Samtools, HTSeq-count, Trim Galore)
+
 ## Dependencies
 <ul style="margin-left: 30px;">
   <li>HISAT2</li>
