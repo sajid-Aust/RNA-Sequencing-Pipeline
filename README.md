@@ -35,6 +35,10 @@ This repository contains a command-line pipeline for analyzing RNA sequencing (R
 ## Usage
 1. Clone this repository: git clone [repository URL]
 2. Install dependencies: (HISAT2, Samtools, HTSeq-count, Trim Galore)
+3. Place your raw FASTQ files in the raw_data directory.
+4. Place your reference genome file (e.g., hg38.fa) in the refgenome directory.
+5. Place your GTF annotation file (e.g., hg38.ncbiRefSeq.gtf) in the gtf directory.
+6. Execute the pipeline script: bash pipeline.sh (or the appropriate command for your shell)
 
 ## Dependencies
 <ul style="margin-left: 30px;">
