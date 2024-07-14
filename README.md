@@ -22,14 +22,11 @@ This repository contains a command-line pipeline for analyzing RNA sequencing (R
   >**for file_R1 in ./trimmed_fastq/*_R1_val_1.fq; do ... done:** This loop iterates over the trimmed FASTQ files.<br>
   >**hisat2 --dta-cufflinks -x ./genome_index/hg38_index -1 "$file_R1" -2 "$file_R2" -S "$output_name":** HISAT2 aligns the trimmed reads to the reference genome using the previously built index. The --dta-cufflinks option prepares the alignments for downstream analysis with Cufflinks (a tool for transcript assembly and quantification). The aligned reads are saved in SAM format in the sam_file directory.
 
-  ### 2. Unzip FASTQ Files:
-  >**gunzip ./raw_data/*.fastq.gz:** Extracts the raw sequencing data (FASTQ files) from their compressed 
-            format (.fastq.gz) and places them in the raw_data directory.
+  ### 6. Convert to BAM:
+  >**for converted_sam in ./sam_file/*.sam; do ... done:** This loop converts the SAM files (text-based alignment format) into BAM files (binary format) using samtools view. BAM files are smaller and more efficient for further analysis.
 
-  ### 2. Unzip FASTQ Files:
-  >**gunzip ./raw_data/*.fastq.gz:** Extracts the raw sequencing data (FASTQ files) from their compressed 
-            format (.fastq.gz) and places them in the raw_data directory.
+  ### 7. Count Reads (HTSeq-count):
+  >**htseq-count -m union -f bam --additional-attr=transcript_id -s yes ./bam_file/*.bam ./gtf/hg38.ncbiRefSeq.gtf > count_file/htcount.txt:** HTSeq-count quantifies the number of reads that align to each gene or transcript in the genome. The -m union option specifies how to handle reads that overlap multiple features. The gene/transcript information is obtained from the GTF (Gene Transfer Format) file, which contains annotations about the genome.
 
-  ### 2. Unzip FASTQ Files:
-  >**gunzip ./raw_data/*.fastq.gz:** Extracts the raw sequencing data (FASTQ files) from their compressed 
-            format (.fastq.gz) and places them in the raw_data directory. 
+  ### 8. Clean Up Count File:
+  >**sed '/^__/ d' < count_file/htcount.txt > count_file/final_htcount.txt:** Removes lines starting with "__" from the HTSeq-count output. These lines typically contain summary information, not individual gene counts. The cleaned count data is saved as final_htcount.txt.
